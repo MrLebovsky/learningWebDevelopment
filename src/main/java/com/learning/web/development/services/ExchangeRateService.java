@@ -20,11 +20,20 @@ public class ExchangeRateService {
         this.exchangeRatesQuery = exchangeRatesQuery;
     }
 
+    public void loadRates() {
+        try {
+            ratesXML = getCbRates();
+        } catch (Exception exp) {
+            throw new IllegalStateException("Does not find any valid rates from CB API after "
+                    + exp.getMessage() + " attempts");
+        }
+    }
+
     @Retryable(
             value = {IllegalStateException.class},
             maxAttempts = 5,
-            backoff = @Backoff(delay = 60000))
-    public void getCbRates() {
-        ratesXML = exchangeRatesQuery.getCourses();
+            backoff = @Backoff(delay = 5000))
+    public String getCbRates() {
+        return exchangeRatesQuery.getCourses();
     }
 }

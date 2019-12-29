@@ -19,7 +19,7 @@ public class ExhangeRatesApi {
     @RequestMapping("/rates/get-course")
     public void getCBRates() {
         logger.debug("Start the Exchange rates functions");
-        exchangeRateService.getCbRates();
+        exchangeRateService.loadRates();
         logger.debug("End of the Exchange rates functions");
     }
 }

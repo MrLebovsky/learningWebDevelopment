@@ -20,12 +20,14 @@ public class ExchangeRatesQuery {
     private final RestTemplate restTemplate;
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     private static final String cbApiUrl = "http://www.cbr.ru/scripts/XML_daily.asp?date_req={date}";
+    private int countUnsuccessful;
 
     public ExchangeRatesQuery(@Qualifier("restTemplateExchangeRates") RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    public String getCourses(){
+    public String getCourses() {
+        countUnsuccessful = 0;
         log.debug("Make a GET query to CRB...");
         targetCourseDate = LocalDate.ofInstant(Instant.now()
                 .truncatedTo(ChronoUnit.DAYS), ZoneOffset.UTC)
@@ -38,7 +40,9 @@ public class ExchangeRatesQuery {
         );
         log.debug("Get the ratesXML. Start the parse!");
         if (true) {
-            throw new IllegalStateException("Haven't target result yet");
+            countUnsuccessful++;
+            log.debug("Haven't target result yet");
+            throw new IllegalStateException(String.valueOf(countUnsuccessful));
         }
         return ratesXML;
     }

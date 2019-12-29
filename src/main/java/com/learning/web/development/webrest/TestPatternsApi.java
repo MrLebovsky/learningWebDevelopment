@@ -13,7 +13,7 @@ public class TestPatternsApi {
     }
 
     @RequestMapping("/patterns/factory")
-    public void getCBRates() {
+    public void showPatternFactory() {
         testPatternFactory.showPatternWork();
     }
 }
