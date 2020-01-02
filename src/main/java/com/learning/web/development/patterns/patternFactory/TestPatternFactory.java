@@ -1,5 +1,6 @@
 package com.learning.web.development.patterns.patternFactory;
 
+import com.learning.web.development.annotations.ExceptionNotify;
 import com.learning.web.development.patterns.TestPattern;
 import com.learning.web.development.patterns.patternFactory.classesCreators.BarnaulPizzaStore;
 import com.learning.web.development.patterns.patternFactory.classesCreators.BiyskPizzaStore;
@@ -15,7 +16,11 @@ public class TestPatternFactory implements TestPattern {
     Logger logger = LoggerFactory.getLogger(TestPatternFactory.class);
 
     @Override
+    @ExceptionNotify
     public void showPatternWork() {
+        int a = Integer.parseInt(null);
+        int b = a + 1;
+        
         PizzaStore barnaulStore = new BarnaulPizzaStore();
         PizzaStore biyskStore = new BiyskPizzaStore();
 

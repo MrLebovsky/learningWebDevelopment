@@ -1,4 +1,4 @@
-package com.learning.web.development.services;
+package com.learning.web.development.services.rates;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class ExchangeRateService {
 
     public void loadRates() {
         try {
-            ratesXML = getCbRates();
+            ratesXML = getCourses();
         } catch (Exception exp) {
             throw new IllegalStateException("Does not find any valid rates from CB API after "
                     + exp.getMessage() + " attempts");
@@ -33,7 +33,7 @@ public class ExchangeRateService {
             value = {IllegalStateException.class},
             maxAttempts = 5,
             backoff = @Backoff(delay = 5000))
-    public String getCbRates() {
+    public String getCourses() {
         return exchangeRatesQuery.getCourses();
     }
 }

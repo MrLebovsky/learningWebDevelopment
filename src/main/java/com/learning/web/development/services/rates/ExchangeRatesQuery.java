@@ -1,4 +1,4 @@
-package com.learning.web.development.services;
+package com.learning.web.development.services.rates;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
