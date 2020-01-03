@@ -18,9 +18,6 @@ public class TestPatternFactory implements TestPattern {
     @Override
     @ExceptionNotify
     public void showPatternWork() {
-        int a = Integer.parseInt(null);
-        int b = a + 1;
-        
         PizzaStore barnaulStore = new BarnaulPizzaStore();
         PizzaStore biyskStore = new BiyskPizzaStore();
 
