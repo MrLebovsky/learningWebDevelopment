@@ -1,6 +1,6 @@
 package com.learning.web.development.multithreading;
 
-import com.learning.web.development.tasks.FindMinimunTask;
+import com.learning.web.development.multithreading.tasks.FindMinimunTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

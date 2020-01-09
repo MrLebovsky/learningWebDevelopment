@@ -1,10 +1,10 @@
-package com.learning.web.development.tasks;
+package com.learning.web.development.multithreading.tasks;
 
 import java.util.concurrent.Callable;
 
 
 /**
- * Find the min element in the array for 4 threads
+ * Find the min element in the array
  */
 public class FindMinimunTask implements Callable<Integer> {
 
