@@ -10,7 +10,7 @@ import java.util.Map;
 public class WebResultApi {
     @GetMapping("/greeting")
     public String greeting(
-            @RequestParam(name="name", required=false, defaultValue="World") String name,
+            @RequestParam(name="name") String name,
             Map<String, Object> model
     ) {
         model.put("name", name);
